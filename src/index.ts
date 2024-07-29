@@ -7,8 +7,9 @@ const prisma = new PrismaClient();
 const port = 3000;
 
 // CORS 설정
-app.use(cors());
+// app.use(cors());
 app.use(express.json()); // JSON 파싱 미들웨어
+app.use(cors({ origin: "https://godsang-beta.vercel.app", credentials: true }));
 
 // 카운터 값을 가져오는 API
 app.get("/counter", async (req, res) => {
